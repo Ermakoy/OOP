@@ -11,7 +11,7 @@ public:
 
     void
     threadedFactorise(const std::string &inputFile, const std::string &outputFile, std::string (*executionFunction)(T),
-                      int threadsCount = 1) throw(IOException) {
+                      int threadsCount = 1){
         inputStream.open(inputFile, std::fstream::in);
         if (!inputStream.good()) throw IOException(inputFile);
 

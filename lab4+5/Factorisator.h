@@ -1,9 +1,6 @@
 #pragma once
 
-#include <cstdio>
-#include <cstdint>
 #include <vector>
-#include <fstream>
 #include <iostream>
 
 class Factorisator {

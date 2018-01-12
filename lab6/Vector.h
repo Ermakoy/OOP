@@ -16,18 +16,18 @@ public:
     Vector(size_t inputSize) : size(inputSize), capacity(inputSize), data(nullptr) {}
 
     // Constructor, creates container with requested size and fill it with values
-    Vector(size_t inputSize, T const &a) : size(inputSize), capacity(inputSize), data(new T[inputSize]) {
+    Vector(size_t inputSize, T const &value) : size(inputSize), capacity(inputSize), data(new T[inputSize]) {
         for (std::size_t i = 0; i < inputSize; i++)
-            data[i] = a;
+            data[i] = value;
     }
     // Constructor that takes another vector
-    Vector(Vector const &a): size(a.size), capacity(a.capacity), data(new T[capacity]){
+    Vector(Vector const &otherVector): size(a.size), capacity(a.capacity), data(new T[capacity]){
         for (std::size_t i = 0; i < size; i++)
-            data[i] = a.data[i];
+            data[i] = otherVector.data[i];
     };
     // Simplified move constructor
-    Vector(Vector && v): data(nullptr), size(0), capacity(0){
-        *this = std::move(v);
+    Vector(Vector && otherVector): data(nullptr), size(0), capacity(0){
+        *this = std::move(otherVector);
     };
     // Default destructor that deletes only data, created by 'New'
     ~Vector() {
@@ -46,6 +46,7 @@ public:
     };
 
     T &at(std::size_t i) {
+        // Sorry for this way of error throw
         if (i >= size)
             std::cerr << "out of range\n";
         return data[i];
@@ -110,16 +111,16 @@ public:
     /*
      * Push back's
      */
-    void push_back(T const &val) {
+    void push_back(T const &value) {
         if (size == capacity) reserve(2 * capacity);
-        data[size++] = val;
+        data[size++] = value;
     };
 
-    void push_back(T &&val) {
+    void push_back(T &&value) {
         if (size == capacity) reserve(2 * capacity);
-        data[size++] = std::move(val);
+        data[size++] = std::move(value);
     };
-    // And some length
+    // And length
     std::size_t length() const {
         return size;
     };
