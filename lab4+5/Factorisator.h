@@ -2,6 +2,18 @@
 
 #include <vector>
 #include <iostream>
+/*
+ * I saw this(Разделяйте реализацию и заголовки)[https://edu.tochlab.net/forum/viewtopic.php?f=5&t=6] 
+ * too lately so definition will be below
+ * 
+    class Factorisator {
+    public:
+        std::string factorisationFunction(uint64_t);
+    private:
+        void getFactoristion(uint64_t);
+        const std::string getString() const;
+        std::vector<uint64_t> factorisation;
+*/
 
 class Factorisator {
 public:

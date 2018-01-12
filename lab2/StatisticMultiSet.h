@@ -30,7 +30,7 @@ public:
             addNum(x);
         }
     };
-
+    // Next func in taken from  https://edu.tochlab.net/forum/viewtopic.php?f=4&t=25
     template<class Iter>
     void addNum(Iter begin, Iter end) {
         while (begin != end) {
